@@ -1,0 +1,30 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#ecg-graph {
+    background-color: #f1f5f9;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #1f2937;
+    color: #f9fafb;
+}
+
+.dark-mode .bg-white {
+    background-color: #374151;
+}
+
+.dark-mode .text-gray-700 {
+    color: #d1d5db;
+}
+
+.dark-mode .text-gray-800 {
+    color: #d1d5db;
+}
+
+.dark-mode button {
+    color: #1f2937;
+}

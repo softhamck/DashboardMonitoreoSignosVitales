@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importación de Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <title>Dashboard de Monitoreo de Signos Vitales</title>
+</head>
+
+<body class="bg-gray-100 transition-colors duration-300" id="dashboard">
+
+    <div class="flex h-full">
+        <!-- Barra lateral -->
+        <aside class="w-1/4 bg-white p-5 border-r border-gray-300 dark-mode h-full">
+            <!-- Información del Paciente -->
+            <div class="flex flex-col items-center text-center space-y-4 mt-6">
+                <img id="patient-photo" src="/img/user.png" alt="Foto del Paciente"
+                    class="w-24 h-24 rounded-full object-cover border-2 border-blue-500" />
+                <div id="patient-info">
+                    <h2 id="patient-name" class="text-xl font-semibold">Paciente 1</h2>
+                    <p id="patient-id">ID: 12345</p>
+                    <p id="patient-age">Edad: 30 años</p>
+                    <p id="patient-weight">Peso: 70 kg</p>
+                    <p id="patient-height">Estatura: 1.75 m</p>
+                </div>
+            </div>
+
+            <!-- Menú de lista de pacientes -->
+            <div class="mt-8">
+                <h3 class="text-lg font-medium mb-2">Seleccionar Paciente</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <button onclick="selectPatient(1)"
+                            class="w-full text-left px-3 py-2 bg-blue-50 hover:bg-blue-100 rounded-lg">
+                            Paciente 1
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="selectPatient(2)"
+                            class="w-full text-left px-3 py-2 bg-blue-50 hover:bg-blue-100 rounded-lg">
+                            Paciente 2
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Contenido principal del dashboard -->
+        <main class="flex-1 p-5 space-y-5 overflow-y-auto">
+            <div class="flex items-center justify-between">
+                <h1 class="text-2xl font-bold text-gray-700">Sistema de Monitoreo Remoto Actividad Física</h1>
+                <!-- Botón para cambiar al modo oscuro -->
+                <button id="darkModeToggle" class="ml-4 p-2 rounded-full border border-gray-300">🌞</button>
+            </div>
+
+            <!-- Gráfico en tiempo real (ECG) -->
+            <div class="bg-white p-4 rounded-lg shadow-lg">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">Ritmo Cardíaco (Electrocardiograma)</h2>
+                <div id="ecg-graph" class="h-64 w-full rounded-lg">
+                    <canvas id="ecgCanvas" style="width: 80%;"></canvas>
+                </div>
+            </div>
+
+            <!-- Visualización de signos vitales con gráficos individuales -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+                <!-- Contador de actividad -->
+                <div class="bg-white p-4 rounded-lg shadow-lg">
+                    <h3 class="text-gray-800 font-semibold text-center">Activo</h3>
+                    <p id="active-counter" class="text-6xl text-pink-500 text-center" style="margin-top: 35px;"></p>
+                </div>
+                <!-- Ejemplo de temperatura corporal -->
+                <div class="bg-white p-4 rounded-lg shadow-lg text-center">
+                    <h3 class="text-gray-800 font-semibold">Temperatura Corporal</h3>
+                    <canvas id="temperature-chart" class="mx-auto my-3" width="100" height="100"></canvas>
+                    <p id="temperature" class="text-2xl text-blue-500"></p>
+                </div>
+
+                <!-- Ritmo cardíaco -->
+                <div class="bg-white p-4 rounded-lg shadow-lg text-center">
+                    <h3 class="text-gray-800 font-semibold">Ritmo Cardiaco</h3>
+                    <canvas id="heart-rate-chart" class="mx-auto my-3" width="100" height="100"></canvas>
+                    <p id="heart-rate" class="text-2xl text-red-500"></p>
+                </div>
+
+                <!-- Saturación de oxígeno -->
+                <div class="bg-white p-4 rounded-lg shadow-lg text-center">
+                    <h3 class="text-gray-800 font-semibold">Saturación de Oxígeno</h3>
+                    <canvas id="oxygen-saturation-chart" class="mx-auto my-3" width="100" height="100"></canvas>
+                    <p id="oxygen-saturation" class="text-2xl text-green-500"></p>
+                </div>
+
+                <!-- Temperatura ambiente -->
+                <div class="bg-white p-4 rounded-lg shadow-lg text-center">
+                    <h3 class="text-gray-800 font-semibold">Temperatura Ambiente</h3>
+                    <canvas id="ambient-temperature-chart" class="mx-auto my-3" width="100" height="100"></canvas>
+                    <p id="ambient-temperature" class="text-2xl text-yellow-500"></p>
+                </div>
+
+                <!-- Humedad ambiente -->
+                <div class="bg-white p-4 rounded-lg shadow-lg text-center">
+                    <h3 class="text-gray-800 font-semibold">Humedad Ambiente</h3>
+                    <canvas id="ambient-humidity-chart" class="mx-auto my-3" width="100" height="100"></canvas>
+                    <p id="ambient-humidity" class="text-2xl text-purple-500"></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Importación de Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Archivo de scripts personalizados -->
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
