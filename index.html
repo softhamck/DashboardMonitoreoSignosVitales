@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Importación de Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"type="text/javascript"></script>    
     <link rel="stylesheet" href="/css/styles.css">
 
     <title>Dashboard de Monitoreo de Signos Vitales</title>
@@ -54,7 +55,7 @@
             <div class="flex items-center justify-between">
                 <h1 class="text-2xl font-bold text-gray-700">Sistema de Monitoreo Remoto Actividad Física</h1>
                 <!-- Botón para cambiar al modo oscuro -->
-                <button id="darkModeToggle" class="ml-4 p-2 rounded-full border border-gray-300">🌞</button>
+                <button id="darkModeToggle" class="ml-4 p-2 rounded-full border border-gray-300">🌑</button>
             </div>
 
             <!-- Gráfico en tiempo real (ECG) -->
